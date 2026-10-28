@@ -1,0 +1,137 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #101010;
+  --color-paper: #fcfaf4;
+  --color-coral: #ff6a3d;
+  --color-cobalt: #2d3fe0;
+  --color-sun: #ffc93c;
+  --color-mint: #b9f2d6;
+  --color-muted: #5a5750;
+
+  --font-sans: var(--font-onest), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-bricolage), var(--font-onest), ui-sans-serif, sans-serif;
+
+  --text-display: clamp(2.6rem, 5.2vw, 4.25rem);
+  --text-display--line-height: 1.05;
+  --text-display--letter-spacing: -0.035em;
+  --text-section: clamp(1.9rem, 3.4vw, 3rem);
+  --text-section--line-height: 1.08;
+  --text-section--letter-spacing: -0.025em;
+  --text-label: 0.6875rem;
+  --text-label--line-height: 1;
+  --text-label--letter-spacing: 0.16em;
+
+  --spacing-section: clamp(4.5rem, 8vw, 7rem);
+  --radius-block: 2rem;
+
+  --shadow-hard: 6px 6px 0 0 var(--color-ink);
+  --shadow-hard-lg: 10px 10px 0 0 var(--color-ink);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    font-weight: 700;
+  }
+
+  ::selection {
+    background: var(--color-ink);
+    color: var(--color-paper);
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--color-ink);
+    outline-offset: 3px;
+  }
+
+  section {
+    scroll-margin-top: 6rem;
+  }
+}
+
+@layer utilities {
+  .label {
+    font-size: var(--text-label);
+    letter-spacing: 0.16em;
+    line-height: 1;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  .hard-border {
+    border: 3px solid var(--color-ink);
+  }
+
+  .dot-paper {
+    background-image: radial-gradient(circle, rgb(16 16 16 / 0.12) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+
+  .no-scrollbar {
+    scrollbar-width: none;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-track {
+  animation: marquee 34s linear infinite;
+}
+
+@keyframes reveal-in {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@supports (animation-timeline: view()) {
+  .reveal {
+    animation: reveal-in linear both;
+    animation-timeline: view();
+    animation-range: entry 4% cover 26%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .marquee-track,
+  .reveal {
+    animation: none;
+  }
+}

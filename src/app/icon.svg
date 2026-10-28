@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Vera Ochoa">
+  <rect width="64" height="64" rx="15" fill="#101010" />
+  <path
+    d="M17 20.5 32 45l15-24.5"
+    fill="none"
+    stroke="#ff6a3d"
+    stroke-width="7"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+</svg>
