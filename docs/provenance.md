@@ -96,3 +96,8 @@ All of them use the same palette tokens as the rest of the site, so a colour cha
 - `pnpm typecheck`, `pnpm lint` and `pnpm build` complete without errors or warnings.
 - `robots.txt`, a multilingual `sitemap.xml` covering notes, `hreflang` alternates and a generated 1200×630 OpenGraph card are in place.
 - Motion is CSS-only and disabled under `prefers-reduced-motion`; the page renders complete with JavaScript disabled, except for the mobile menu.
+
+## License note
+
+This repository contains derivative work. The license covers only the original
+contributions of the copyright holder. See [LICENSE](../LICENSE).
